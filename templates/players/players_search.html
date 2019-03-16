@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} | Players Search {% endblock %}
+{% block content %}
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+        <div class="row text-center">
+        <div class="col-md-12">
+            <h1 class="display-4">Players Search</h1>
+        </div>
+        </div>
+    </div>
+</section>
+<section id="showcase-inner" class="showcase-search text-white py-5">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <form action="{% url 'players_search' %}">
+            <!-- Form -->
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label class="sr-only">Team</label>
+                <input type="number" name="team" class="form-control" placeholder="Team ID Number" 
+                  value="{{ retain_values.team }}">
+              </div>
+              <div class="col-md-4 mb-3">
+                <label class="sr-only">Player Name</label>
+                <input type="text" name="name" class="form-control" placeholder="Player Name" 
+                  value="{{ retain_values.name }}">
+              </div>
+            </div>
+            <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
+          </form>
+        </div>
+      </div>
+    </div>
+</section>
+<!-- Breadcrumb -->
+<section id="bc" class="mt-3">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                <a href="{% url 'players' %}">
+                    <i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="breadcrumb-item active"> Players Search</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+<!-- players -->
+<section id="players" class="py-4">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card-body">
+            {% if players %}
+                <table style="width:90%">
+                        <tr>
+                            <th>Team</th>
+                            <th>Player Name</th>
+                        </tr>
+                    {% for player in players %}
+                        <tr>
+                            <td>{{ player.team }}</td>
+                            <td>{{ player.name }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <div class="row">
+                 <p>No Players Found</p>
+                </div>
+            {%endif%}
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

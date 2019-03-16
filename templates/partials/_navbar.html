@@ -1,0 +1,96 @@
+{% load static %}
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+          <a class="navbar-brand" href="{% url 'index' %}">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav">
+              <li
+                {% if '/' == request.path %}
+                    class="nav-item active mr-3"
+                {% else %}
+                    class="nav-item mr-3"
+                {% endif %}
+	            >
+                <a class="nav-link" href="{% url 'index' %}">Home</a>
+              </li>
+              <li
+                {% if 'about' in request.path %}
+                    class="nav-item active mr-3"
+                {% else %}
+                    class="nav-item mr-3"
+                {% endif %}
+                >
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+              </li>
+              <li
+                {% if 'weeks' in request.path %}
+                    class="nav-item active mr-3"
+                {% else %}
+                    class="nav-item mr-3"
+                {% endif %}
+                >
+                    <a class="nav-link" href="{% url 'weeks' %}">Weeks</a>
+              </li>
+              <li
+                {% if 'schedules' in request.path %}
+                    class="nav-item active mr-3"
+                {% else %}
+                    class="nav-item mr-3"
+                {% endif %}
+                >
+                    <a class="nav-link" href="{% url 'schedules' %}">Schedules</a>
+              </li>
+              <li
+              {% if 'teams' in request.path %}
+                  class="nav-item active mr-3"
+              {% else %}
+                  class="nav-item mr-3"
+              {% endif %}
+              >
+                  <a class="nav-link" href="{% url 'teams' %}">Teams</a>
+            </li>
+              <li
+              {% if 'players' in request.path %}
+                  class="nav-item active mr-3"
+              {% else %}
+                  class="nav-item mr-3"
+              {% endif %}
+              >
+                  <a class="nav-link" href="{% url 'players' %}">Players</a>
+              </li>
+              <li
+              {% if 'playersind' in request.path %}
+                  class="nav-item active mr-3"
+              {% else %}
+                  class="nav-item mr-3"
+              {% endif %}
+              >
+                  <a class="nav-link" href="{% url 'playersind' %}">Players Options</a>
+              </li>
+              <li
+              {% if 'playerstatind' in request.path %}
+                  class="nav-item active mr-3"
+              {% else %}
+                  class="nav-item mr-3"
+              {% endif %}
+              >
+                  <a class="nav-link" href="{% url 'playerstatind' %}">Player Stats Options</a>
+            </li>
+            <li
+              {% if 'playerplusesind' in request.path %}
+                  class="nav-item active mr-3"
+              {% else %}
+                  class="nav-item mr-3"
+              {% endif %}
+              >
+                  <a class="nav-link" href="{% url 'playerplusesind' %}">Player Pluses Options</a>
+            </li>
+        </ul>
+      </div>
+   </div>
+</nav>

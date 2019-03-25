@@ -1,0 +1,20 @@
+name_choices = {
+'Adkins, Trey':'Adkins, Trey',
+'Baldwin, Craig':'Baldwin, Craig',
+'Bradley, John':'Bradley, John',
+'Corbitt, Jeff':'Corbitt, Jeff',
+'Frank, Wayne':'Frank, Wayne',
+'Glascoe, Matt':'Glascoe, Matt',
+'Harris, Chuck':'Harris, Chuck',
+'Jablon, Joe':'Jablon, Joe',
+'Masten, Matt':'Masten, Matt',
+'Masten, Pat':'Masten, Pat',
+'Masten, Thomas':'Masten, Thomas',
+'Miller, Brooke':'Miller, Brooke',
+'Pilkenton, Justin':'Pilkenton, Justin',
+'Teeter, Jake':'Teeter, Jake',
+'Thompson, Frank':'Thompson, Frank',
+'Wagner, Terry':'Wagner, Terry',
+'Williams, April':'Williams, April',
+'Wortman, Darryl':'Wortman, Darryl'
+}

@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} | Player Plus {% endblock %}
+{% block content %}
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+        <div class="row text-center">
+        <div class="col-md-12">
+            <h1 class="display-4">Player Plus</h1>
+        </div>
+        </div>
+    </div>
+</section>
+<section id="showcase-inner" class="showcase-search text-white py-5">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <form action="{% url 'playerplus_search' %}">
+            <!-- Form -->
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label class="sr-only">Week</label>
+                <input type="number" name="week" class="form-control" placeholder="Week Number" 
+                    value="{{ retain_values.week }}">
+              </div>
+              <div class="col-md-4 mb-3">
+                <label class="sr-only">Team</label>
+                <input type="number" name="team" class="form-control" placeholder="Team ID Number" 
+                  value="{{ retain_values.team }}">
+              </div>
+              <div class="col-md-4 mb-3">
+                <label class="sr-only">Name</label>
+                <select name="player_name" class="form-control">
+                  <option selected="true" disabled="disabled">Name (All)</option>
+                    {% for key,value in name_choices.items %}
+                      <option value="{{ key }}"
+
+                      >{{ value }}</option>
+                    {% endfor %}
+                </select>
+              </div>
+            <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
+          </form>
+        </div>
+      </div>
+    </div>
+</section>
+<!-- Breadcrumb -->
+<section id="bc" class="mt-3">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                <a href="{% url 'index' %}">
+                    <i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="breadcrumb-item active"> Player Plus</li>
+            </ol>
+        </nav>
+    </div>
+<!-- playerplus -->
+<section id="playerplus" class="py-4">
+    <div class="container">
+      <div class="row">
+          <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card-body">
+              {% if playerplus %}
+                  <table style="width:90%">
+                          <tr>
+                              <th>ID</th>
+                              <th>Week</th>
+                              <th>Team</th>
+                              <th>Player Name</th>
+                              <th>Plus Ones</th>
+                              <th>Ton Eighties</th>
+                              <th>Nine Hitters</th>
+                              <th>MVP</th>
+                              <th>High Out</th>
+                              <th>Six Bulls</th>
+                          </tr>
+                      {% for player in playerplus %}
+                          <tr>
+                              <td>{{ player.id }}</td>
+                              <td>{{ player.week }}</td>
+                              <td>{{ player.team }}</td>
+                              <td>{{ player.player_name }}</td>
+                              <td>{{ player.plus_one }}</td>
+                              <td>{{ player.ton_eighty }}</td>
+                              <td>{{ player.nine_hitter }}</td>
+                              <td>{{ player.mvp }}</td>
+                              <td>{{ player.high_out }}</td>
+                              <td>{{ player.six_bull }}</td>
+                          </tr>
+                      {% endfor %}
+                  </table>
+              {% else %}
+                  <div class="row">
+                   <p>No Player Plus Match</p>
+                  </div>
+              {%endif%}
+              </div>
+          </div>
+      </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} | Players Search {% endblock %}
+{% block title %} | Players {% endblock %}
 {% block content %}
 <section id="showcase-inner" class="py-5 text-white">
     <div class="container">
         <div class="row text-center">
         <div class="col-md-12">
-            <h1 class="display-4">Players Search</h1>
+            <h1 class="display-4">Players</h1>
         </div>
         </div>
     </div>
@@ -41,10 +41,10 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                <a href="{% url 'players' %}">
+                <a href="{% url 'index' %}">
                     <i class="fas fa-home"></i> Home</a>
                 </li>
-                <li class="breadcrumb-item active"> Players Search</li>
+                <li class="breadcrumb-item active"> Players</li>
             </ol>
         </nav>
     </div>

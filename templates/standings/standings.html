@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} | Teams {% endblock %}
+{% block title %} | Standings {% endblock %}
 {% block content %}
 <section id="showcase-inner" class="py-5 text-white">
     <div class="container">
         <div class="row text-center">
         <div class="col-md-12">
-            <h1 class="display-4">Teams</h1>
+            <h1 class="display-4">Standings</h1>
         </div>
         </div>
     </div>
@@ -20,37 +20,37 @@
                 <a href="{% url 'index' %}">
                     <i class="fas fa-home"></i> Home</a>
                 </li>
-                <li class="breadcrumb-item active"> Teams</li>
+                <li class="breadcrumb-item active"> Standings</li>
             </ol>
         </nav>
     </div>
 </section>
-<!-- Teams -->
-<section id="teams" class="py-4">
+<!-- standings -->
+<section id="standings" class="py-4">
   <div class="container">
     <div class="row">
         <div class="col-md-6 col-lg-4 mb-4">
             <div class="card-body">
-            {% if teams %}
-                <table style="width:100%">
-                    <tr>
-                        <th>ID</th>
-                        <th>Abbrev.</th>
-                        <th>Name</th>
-                        <th>Site</th>
-                    </tr>
-                    {% for team in teams %}
+            {% if standings %}
+                <table style="width:90%">
                         <tr>
-                            <td>{{ team.id }}</td>
-                            <td>{{ team.abbrev }}</td>
-                            <td>{{ team.name }}</td>
-                            <td>{{ team.site }}</td>
+                            <th>Week</th>
+                            <th>Team</th>
+                            <th>Wins</th>
+                            <th>Losses</th>
+                        </tr>
+                    {% for standing in standings %}
+                        <tr>
+                            <td>{{ standing.week }}</td>
+                            <td>{{ standing.team }}</td>
+                            <td>{{ standing.wins }}</td>
+                            <td>{{ standing.losses }}</td>
                         </tr>
                     {% endfor %}
                 </table>
             {% else %}
                 <div class="row">
-                 <p>No Teams Available</p>
+                 <p>No Standings Records Available</p>
                 </div>
             {%endif%}
             </div>
@@ -59,19 +59,19 @@
     
     <div class="row">
         <div class="col-md-12">
-        {% if listings.has_other_pages %}
+        {% if standings.has_other_pages %}
         <ul class="pagination">
-            {% if listings.has_previous %}
+            {% if standings.has_previous %}
             <li class="page-item">
-                <a href="?page={{teams.previous_page_number}}" class="page-link">&laquo;</a>
+                <a href="?page={{standings.previous_page_number}}" class="page-link">&laquo;</a>
             </li>
             {% else %}
             <li class="page-item disabled" >
                 <a class="page-link">&laquo;</a>
             </li>
             {% endif %}
-            {% for i in teams.paginator.page_range %}
-            {% if teams.number == i %}
+            {% for i in standings.paginator.page_range %}
+            {% if standings.number == i %}
                 <li class="page-item active">
                 <a class="page-link">{{i}}</a>
                 </li>
@@ -81,9 +81,9 @@
                 </li>
             {% endif %}
             {% endfor %}
-            {% if teams.has_next %}
+            {% if standings.has_next %}
             <li class="page-item">
-                <a href="?page={{teams.next_page_number}}" class="page-link">&raquo;</a>
+                <a href="?page={{standings.next_page_number}}" class="page-link">&raquo;</a>
             </li>
             {% else %}
             <li class="page-item disabled" >

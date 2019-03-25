@@ -1,12 +1,12 @@
-{% extends 'base.html' %}
+{%extends 'base.html' %}
 {% load static %}
-{% block title %} | Players{% endblock %}
+{% block title %} | Wins-Losses{% endblock %}
 {% block content %}
 <section id="showcase-inner" class="py-5 text-white">
     <div class="container">
         <div class="row text-center">
         <div class="col-md-12">
-            <h1 class="display-4">Players</h1>
+            <h1 class="display-4">Wins-Losses</h1>
         </div>
         </div>
     </div>
@@ -15,18 +15,18 @@
     <div class="container">
       <div class="row text-center">
         <div class="col-md-12">
-          <form action="{% url 'players_search' %}">
+          <form action="{% url 'standings_search' %}">
             <!-- Form -->
             <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label class="sr-only">Week</label>
+                <input type="number" name="week" class="form-control" placeholder="Week Number" 
+                  value="{{ retain_values.week }}">
+              </div>
               <div class="col-md-4 mb-3">
                 <label class="sr-only">Team</label>
                 <input type="number" name="team" class="form-control" placeholder="Team ID Number" 
                   value="{{ retain_values.team }}">
-              </div>
-              <div class="col-md-4 mb-3">
-                <label class="sr-only">Player Name</label>
-                <input type="text" name="name" class="form-control" placeholder="Player Name" 
-                  value="{{ retain_values.name }}">
               </div>
             </div>
             <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
@@ -44,35 +44,39 @@
             <a href="{% url 'index' %}">
                 <i class="fas fa-home"></i> Home</a>
             </li>
-            <li class="breadcrumb-item active"> Players</li>
+            <li class="breadcrumb-item active"> Wins-Losses</li>
         </ol>
         </nav>
     </div>
 </section>
-<!-- players -->
-<section id="players" class="py-4">
+<!-- standings -->
+<section id="standings" class="py-4">
     <div class="container">
       <div class="row">
           <div class="col-md-6 col-lg-4 mb-4">
               <div class="card-body">
-              {% if players %}
-                  <table style="width:100%">
-                          <tr>
-                              <th>Team</th>
-                              <th>Player Name</th>
-                          </tr>
-                      {% for player in players %}
-                          <tr>
-                              <td>{{ player.team }}</td>
-                              <td>{{ player.name }}</td>
-                          </tr>
-                      {% endfor %}
-                  </table>
-              {% else %}
-                  <div class="row">
-                   <p>No Players Found</p>
-                  </div>
-              {%endif%}
+                {% if standings %}
+                <table style="width:90%">
+                        <tr>
+                            <th>Week</th>
+                            <th>Team</th>
+                            <th>Wins</th>
+                            <th>Losses</th>
+                        </tr>
+                    {% for standing in standings %}
+                        <tr>
+                            <td>{{ standing.week }}</td>
+                            <td>{{ standing.team }}</td>
+                            <td>{{ standing.wins }}</td>
+                            <td>{{ standing.losses }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                {% else %}
+                    <div class="row">
+                    <p>No Standings Records Available</p>
+                    </div>
+                {%endif%}
               </div>
           </div>
       </div>

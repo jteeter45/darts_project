@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} | Player Stats{% endblock %}
+{% block title %} | Player Plus{% endblock %}
 {% block content %}
 <section id="showcase-inner" class="py-5 text-white">
     <div class="container">
         <div class="row text-center">
         <div class="col-md-12">
-            <h1 class="display-4">Player Stats</h1>
+            <h1 class="display-4">Player Plus</h1>
         </div>
         </div>
     </div>
@@ -16,7 +16,7 @@
     <div class="container">
         <div class="row text-center">
         <div class="col-md-12">
-            <form action="{% url 'playerstat_search' %}">
+            <form action="{% url 'playerplus_search' %}">
             <!-- Form -->
             <div class="form-row">
                 <div class="col-md-4 mb-3">
@@ -58,53 +58,49 @@
             <a href="{% url 'index' %}">
                 <i class="fas fa-home"></i> Home</a>
             </li>
-            <li class="breadcrumb-item active"> Player Stats</li>
+            <li class="breadcrumb-item active"> Player Plus</li>
         </ol>
         </nav>
     </div>
 </section>
-<!-- playerstat -->
-<section id="playerstat" class="py-4">
+<!-- Playerplus -->
+<section id="playerplus" class="py-4">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="card-body">
-                {% if playerstat %}
+                {% if playerplus %}
                     <table style="width:90%">
                             <tr>
                                 <th>ID</th>
                                 <th>Week</th>
                                 <th>Team</th>
                                 <th>Player Name</th>
-                                <th>501 Singles Win</th>
-                                <th>501 Singles Loss</th>
-                                <th>Cricket Singles Win</th>
-                                <th>Cricket Singles Loss</th>
-                                <th>501 Doubles Win</th>
-                                <th>501 Doubles Loss</th>
-                                <th>Cricket Doubles Win</th>
-                                <th>Cricket Doubles Loss</th>
+                                <th>Plus Ones</th>
+                                <th>Ton Eighties</th>
+                                <th>Nine Hitters</th>
+                                <th>MVP</th>
+                                <th>High Out</th>
+                                <th>Six Bulls</th>
                             </tr>
-                        {% for player in playerstat %}
+                        {% for player in playerplus %}
                             <tr>
                                 <td>{{ player.id }}</td>
                                 <td>{{ player.week }}</td>
                                 <td>{{ player.team }}</td>
                                 <td>{{ player.player_name }}</td>
-                                <td>{{ player.five_singles_win }}</td>
-                                <td>{{ player.five_singles_loss }}</td>
-                                <td>{{ player.cricket_singles_win }}</td>
-                                <td>{{ player.cricket_singles_loss }}</td>
-                                <td>{{ player.five_doubles_win }}</td>
-                                <td>{{ player.five_doubles_loss }}</td>
-                                <td>{{ player.cricket_doubles_win }}</td>
-                                <td>{{ player.cricket_doubles_loss }}</td>
+                                <td>{{ player.plus_one }}</td>
+                                <td>{{ player.ton_eighty }}</td>
+                                <td>{{ player.nine_hitter }}</td>
+                                <td>{{ player.mvp }}</td>
+                                <td>{{ player.high_out }}</td>
+                                <td>{{ player.six_bull }}</td>
                             </tr>
                         {% endfor %}
                     </table>
                 {% else %}
                     <div class="row">
-                    <p>No Player Stats Match</p>
+                    <p>No Player Plus Match</p>
                     </div>
                 {%endif%}
                 </div>

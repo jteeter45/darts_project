@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} | Player Stats{% endblock %}
+{% block content %}
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+        <div class="row text-center">
+        <div class="col-md-12">
+            <h1 class="display-4">Player Stats</h1>
+        </div>
+        </div>
+    </div>
+</section>
+<section id="showcase-inner" class="showcase-search text-white py-5">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <form action="{% url 'playerstat_search' %}">
+            <!-- Form -->
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label class="sr-only">Week</label>
+                <input type="number" name="week" class="form-control" placeholder="Week Number" 
+                    value="{{ retain_values.week }}">
+              </div>
+              <div class="col-md-4 mb-3">
+                <label class="sr-only">Team</label>
+                <input type="number" name="team" class="form-control" placeholder="Team ID Number" 
+                  value="{{ retain_values.team }}">
+              </div>
+              <div class="col-md-4 mb-3">
+                <label class="sr-only">Name</label>
+                <select name="player_name" class="form-control">
+                  <option selected="true" disabled="disabled">Name (All)</option>
+                    {% for key,value in name_choices.items %}
+                      <option value="{{ key }}"
+
+                      >{{ value }}</option>
+                    {% endfor %}
+                </select>
+              </div>
+            <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
+          </form>
+        </div>
+      </div>
+    </div>
+</section>
+<!-- Breadcrumb -->
+<section id="bc" class="mt-3">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                <a href="{% url 'index' %}">
+                    <i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="breadcrumb-item active"> Player Stats</li>
+            </ol>
+        </nav>
+    </div>
+<!-- playerstat -->
+<section id="playerstat" class="py-4">
+    <div class="container">
+      <div class="row">
+          <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card-body">
+              {% if playerstat %}
+                  <table style="width:90%">
+                          <tr>
+                              <th>ID</th>
+                              <th>Week</th>
+                              <th>Team</th>
+                              <th>Player Name</th>
+                              <th>501 Singles Win</th>
+                              <th>501 Singles Loss</th>
+                              <th>Cricket Singles Win</th>
+                              <th>Cricket Singles Loss</th>
+                              <th>501 Doubles Win</th>
+                              <th>501 Doubles Loss</th>
+                              <th>Cricket Doubles Win</th>
+                              <th>Cricket Doubles Loss</th>
+                          </tr>
+                      {% for player in playerstat %}
+                          <tr>
+                              <td>{{ player.id }}</td>
+                              <td>{{ player.week }}</td>
+                              <td>{{ player.team }}</td>
+                              <td>{{ player.player_name }}</td>
+                              <td>{{ player.five_singles_win }}</td>
+                              <td>{{ player.five_singles_loss }}</td>
+                              <td>{{ player.cricket_singles_win }}</td>
+                              <td>{{ player.cricket_singles_loss }}</td>
+                              <td>{{ player.five_doubles_win }}</td>
+                              <td>{{ player.five_doubles_loss }}</td>
+                              <td>{{ player.cricket_doubles_win }}</td>
+                              <td>{{ player.cricket_doubles_loss }}</td>
+                          </tr>
+                      {% endfor %}
+                  </table>
+              {% else %}
+                  <div class="row">
+                   <p>No Player Stats Match</p>
+                  </div>
+              {%endif%}
+              </div>
+          </div>
+      </div>
+    </div>
+</section>
+{% endblock %}

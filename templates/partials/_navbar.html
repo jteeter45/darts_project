@@ -43,7 +43,7 @@
                     class="nav-item mr-3"
                 {% endif %}
                 >
-                    <a class="nav-link" href="{% url 'schedules' %}">Schedules</a>
+                    <a class="nav-link" href="{% url 'schedules' %}">Schedule</a>
               </li>
               <li
               {% if 'teams' in request.path %}
@@ -53,15 +53,15 @@
               {% endif %}
               >
                   <a class="nav-link" href="{% url 'teams' %}">Teams</a>
-            </li>
+              </li>
               <li
-              {% if 'players' in request.path %}
-                  class="nav-item active mr-3"
+              {% if 'standingsind' in request.path %}
+                class="nav-item active mr-3"
               {% else %}
-                  class="nav-item mr-3"
+                class="nav-item mr-3"
               {% endif %}
               >
-                  <a class="nav-link" href="{% url 'players' %}">Players</a>
+                <a class="nav-link" href="{% url 'standingsind' %}">Wins/Losses</a>
               </li>
               <li
               {% if 'playersind' in request.path %}
@@ -70,7 +70,7 @@
                   class="nav-item mr-3"
               {% endif %}
               >
-                  <a class="nav-link" href="{% url 'playersind' %}">Players Options</a>
+                  <a class="nav-link" href="{% url 'playersind' %}">Players</a>
               </li>
               <li
               {% if 'playerstatind' in request.path %}
@@ -79,16 +79,16 @@
                   class="nav-item mr-3"
               {% endif %}
               >
-                  <a class="nav-link" href="{% url 'playerstatind' %}">Player Stats Options</a>
+                  <a class="nav-link" href="{% url 'playerstatind' %}">Player Stats</a>
             </li>
             <li
-              {% if 'playerplusesind' in request.path %}
+              {% if 'playerplusind' in request.path %}
                   class="nav-item active mr-3"
               {% else %}
                   class="nav-item mr-3"
               {% endif %}
               >
-                  <a class="nav-link" href="{% url 'playerplusesind' %}">Player Pluses Options</a>
+                  <a class="nav-link" href="{% url 'playerplusind' %}">Player Plus</a>
             </li>
         </ul>
       </div>

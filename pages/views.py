@@ -2,6 +2,12 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from players.models import Player
+from playerstat.models import Playerstat
+from playerstat.choices import name_choices
+from playerplus.models import Playerplus
+from playerplus.choices import name_choices
+from standings.models import Standing
+
 
 # Create your views here.
 def index(request):
@@ -26,15 +32,90 @@ def playersind(request):
             queryset_list = queryset_list.filter(name__icontains=name)
 
     context = {
-        'players': queryset_list,
+        'playersind': queryset_list,
         'retain_values': request.GET
     }
 
-    return render(request, 'players/players_search.html', context)
-    
+    return render(request, 'pages/playersind.html', context)
 
 def playerstatind(request):
-    return render(request, 'pages/playerstatind.html')
+    queryset_list = Playerstat.objects.order_by('week', 'team', 'player_name')
 
-def playerplusesind(request):
-    return render(request, 'pages/playerplusesind.html')
+    #Week
+    if 'week' in request.GET:
+        week = request.GET['week']
+        if week:
+            queryset_list = queryset_list.filter(week=week)
+
+    #Team
+    if 'team' in request.GET:
+        team = request.GET['team']
+        if team:
+            queryset_list = queryset_list.filter(team=team)
+
+    #Player_name
+    if 'player_name' in request.GET:
+        player_name = request.GET['player_name']
+        if player_name:
+            queryset_list = queryset_list.filter(player_name__icontains=name)
+
+    context = {
+        'name_choices': name_choices,
+        'playerstatind': queryset_list,
+        'retain_values': request.GET
+    }
+
+    return render(request, 'pages/playerstatind.html', context)   
+
+
+def playerplusind(request):
+    queryset_list = Playerplus.objects.order_by('week', 'team', 'player_name')
+
+    #Week
+    if 'week' in request.GET:
+        week = request.GET['week']
+        if week:
+            queryset_list = queryset_list.filter(week=week)
+
+    #Team
+    if 'team' in request.GET:
+        team = request.GET['team']
+        if team:
+            queryset_list = queryset_list.filter(team=team)
+
+    #Player_name
+    if 'player_name' in request.GET:
+        player_name = request.GET['player_name']
+        if player_name:
+            queryset_list = queryset_list.filter(player_name__icontains=name)
+
+    context = {
+        'name_choices': name_choices,
+        'playerplusind': queryset_list,
+        'retain_values': request.GET
+    }
+
+    return render(request, 'pages/playerplusind.html', context) 
+
+def standingsind(request):
+		queryset_list = Standing.objects.order_by('week', 'team')
+
+		#Week
+		if 'week' in request.GET:
+			week = request.GET['week']
+			if week:
+				queryset_list = queryset_list.filter(week=week)
+
+		#Team
+		if 'team' in request.GET:
+			team = request.GET['team']
+			if team:
+				queryset_list = queryset_list.filter(team=team)
+
+
+		context = {
+			'standingsind': queryset_list,
+			'retain_values': request.GET
+		}
+
+		return render(request, 'pages/standingsind.html', context)

@@ -25,7 +25,7 @@ SECRET_KEY = 'h(ad(j*t=%%4!e1po1m=p_g!amxh3ybbzykzohqf$(77dh=7nf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['157.230.229.18']
 
 
 # Application definition
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'explorer',
 ]
 
 MIDDLEWARE = [
@@ -85,8 +86,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'dartsdb',
-        'USER': 'postgres',
-        'PASSWORD': 'postgrespwd',
+        'USER': 'dbadmin',
+        'PASSWORD': 'dbadminpwd',
         'HOST': 'localhost'
         }
     }
@@ -134,3 +135,11 @@ STATICFILES_DIRS = [
 ]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+EXPLORER_CONNECTIONS = {'default': 'default'}
+EXPLORER_DEFAULT_CONNECTION = 'default'
+
+try:
+    from local_settings import *
+except ImportError:
+    pass

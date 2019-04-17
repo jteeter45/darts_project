@@ -13,13 +13,13 @@ def index(request):
 
 		context = {
 			'playerstat': paged_playerstat,
-        }
+			}
 
 		return render(request, 'playerstat/playerstat.html', context)
 
 def playerstat_search(request):
 		queryset_list = Playerstat.objects.order_by('week', 'team', 'player_name')
-
+		
 		#Week
 		if 'week' in request.GET:
 			week = request.GET['week']

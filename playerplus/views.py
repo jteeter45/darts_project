@@ -6,14 +6,14 @@ from .choices import name_choices
 
 def index(request):
 		playerplus = Playerplus.objects.order_by('week', 'team', 'player_name')
-
+		
 		paginator = Paginator(playerplus, 10)
 		page = request.GET.get('page')
 		paged_playerplus = paginator.get_page(page)
 
 		context = {
 			'playerplus': paged_playerplus,
-        }
+			}
 
 		return render(request, 'playerplus/playerplus.html', context)
 

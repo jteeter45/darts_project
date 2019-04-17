@@ -72,33 +72,23 @@
                 {% if playerstat %}
                     <table style="width:90%">
                             <tr>
-                                <th>ID</th>
                                 <th>Week</th>
                                 <th>Team</th>
                                 <th>Player Name</th>
-                                <th>501 Singles Win</th>
-                                <th>501 Singles Loss</th>
-                                <th>Cricket Singles Win</th>
-                                <th>Cricket Singles Loss</th>
-                                <th>501 Doubles Win</th>
-                                <th>501 Doubles Loss</th>
-                                <th>Cricket Doubles Win</th>
-                                <th>Cricket Doubles Loss</th>
+                                <th>501 Singles Win/Loss/DNP</th>
+                                <th>Cricket Singles Win/Loss/DNP</th>
+                                <th>501 Doubles Win/Loss/DNP</th>
+                                <th>Cricket Doubles Win/Loss/DNP</th>
                             </tr>
                         {% for player in playerstat %}
                             <tr>
-                                <td>{{ player.id }}</td>
                                 <td>{{ player.week }}</td>
                                 <td>{{ player.team }}</td>
                                 <td>{{ player.player_name }}</td>
-                                <td>{{ player.five_singles_win }}</td>
-                                <td>{{ player.five_singles_loss }}</td>
-                                <td>{{ player.cricket_singles_win }}</td>
-                                <td>{{ player.cricket_singles_loss }}</td>
-                                <td>{{ player.five_doubles_win }}</td>
-                                <td>{{ player.five_doubles_loss }}</td>
-                                <td>{{ player.cricket_doubles_win }}</td>
-                                <td>{{ player.cricket_doubles_loss }}</td>
+                                <td>{{ player.five_singles_wldnp }}</td>
+                                <td>{{ player.cricket_singles_wldnp }}</td>
+                                <td>{{ player.five_doubles_wldnp }}</td>
+                                <td>{{ player.cricket_doubles_wldnp }}</td>
                             </tr>
                         {% endfor %}
                     </table>

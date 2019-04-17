@@ -7,7 +7,7 @@ from playerstat.choices import name_choices
 from playerplus.models import Playerplus
 from playerplus.choices import name_choices
 from standings.models import Standing
-
+from django.db.models import Sum
 
 # Create your views here.
 def index(request):
@@ -98,24 +98,26 @@ def playerplusind(request):
     return render(request, 'pages/playerplusind.html', context) 
 
 def standingsind(request):
-		queryset_list = Standing.objects.order_by('week', 'team')
+    queryset_list = Standing.objects.values('team').order_by('-wins').annotate(wins=Sum('wins'),losses=Sum('losses'))
 
-		#Week
-		if 'week' in request.GET:
-			week = request.GET['week']
-			if week:
-				queryset_list = queryset_list.filter(week=week)
+    #queryset_list = Standing.objects.order_by('week', 'team')
+            
+    #Week
+    if 'week' in request.GET:
+        week = request.GET['week']
+        if week:
+            queryset_list = queryset_list.filter(week=week)
 
-		#Team
-		if 'team' in request.GET:
-			team = request.GET['team']
-			if team:
-				queryset_list = queryset_list.filter(team=team)
+    #Team
+    if 'team' in request.GET:
+        team = request.GET['team']
+        if team:
+            queryset_list = queryset_list.filter(team=team)
 
 
-		context = {
-			'standingsind': queryset_list,
-			'retain_values': request.GET
-		}
+    context = {
+        'standingsind': queryset_list,
+        'retain_values': request.GET
+    }
 
-		return render(request, 'pages/standingsind.html', context)
+    return render(request, 'pages/standingsind.html', context)

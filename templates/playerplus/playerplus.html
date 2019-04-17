@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} | Playerplus {% endblock %}
+{% block title %} | Playerplus Totals {% endblock %}
 {% block content %}
 <section id="showcase-inner" class="py-5 text-white">
     <div class="container">
         <div class="row text-center">
         <div class="col-md-12">
-            <h1 class="display-4">Player Plus</h1>
+            <h1 class="display-4">Player Plus Totals</h1>
         </div>
         </div>
     </div>
@@ -20,7 +20,7 @@
                 <a href="{% url 'index' %}">
                     <i class="fas fa-home"></i> Home</a>
                 </li>
-                <li class="breadcrumb-item active"> Player Plus</li>
+                <li class="breadcrumb-item active"> Player Plus Totals</li>
             </ol>
         </nav>
     </div>
@@ -34,28 +34,28 @@
             {% if playerplus %}
                 <table style="width:90%">
                         <tr>
-                            <th>ID</th>
+                            <!--<th>ID</th>
                             <th>Week</th>
-                            <th>Team</th>
+                            <th>Team</th>-->
                             <th>Player Name</th>
                             <th>Plus Ones</th>
                             <th>Ton Eighties</th>
                             <th>Nine Hitters</th>
                             <th>MVP</th>
-                            <th>High Out</th>
+                            <!--<th>High Out</th>-->
                             <th>Six Bulls</th>
                         </tr>
                     {% for player in playerplus %}
                         <tr>
-                            <td>{{ player.id }}</td>
+                            <!--<td>{{ player.id }}</td>
                             <td>{{ player.week }}</td>
-                            <td>{{ player.team }}</td>
+                            <td>{{ player.team }}</td>-->
                             <td>{{ player.player_name }}</td>
                             <td>{{ player.plus_one }}</td>
                             <td>{{ player.ton_eighty }}</td>
                             <td>{{ player.nine_hitter }}</td>
                             <td>{{ player.mvp }}</td>
-                            <td>{{ player.high_out }}</td>
+                            <!--<td>{{ player.high_out }}</td>-->
                             <td>{{ player.six_bull }}</td>
                         </tr>
                     {% endfor %}

@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} | Playerstat {% endblock %}
+{% block title %} | Playerstat Totals {% endblock %}
 {% block content %}
 <section id="showcase-inner" class="py-5 text-white">
     <div class="container">
         <div class="row text-center">
         <div class="col-md-12">
-            <h1 class="display-4">Player Stats</h1>
+            <h1 class="display-4">Player Stat Totals</h1>
         </div>
         </div>
     </div>
@@ -20,7 +20,7 @@
                 <a href="{% url 'index' %}">
                     <i class="fas fa-home"></i> Home</a>
                 </li>
-                <li class="breadcrumb-item active"> Player Stats</li>
+                <li class="breadcrumb-item active"> Player Stat Totals</li>
             </ol>
         </nav>
     </div>
@@ -34,9 +34,9 @@
             {% if playerstat %}
                 <table style="width:90%">
                         <tr>
-                            <th>ID</th>
+                            <!--<th>ID</th>
                             <th>Week</th>
-                            <th>Team</th>
+                            <th>Team</th>-->
                             <th>Player Name</th>
                             <th>501 Singles Win</th>
                             <th>501 Singles Loss</th>
@@ -49,9 +49,9 @@
                         </tr>
                     {% for player in playerstat %}
                         <tr>
-                            <td>{{ player.id }}</td>
+                            <!--<td>{{ player.id }}</td>
                             <td>{{ player.week }}</td>
-                            <td>{{ player.team }}</td>
+                            <td>{{ player.team }}</td>-->
                             <td>{{ player.player_name }}</td>
                             <td>{{ player.five_singles_win }}</td>
                             <td>{{ player.five_singles_loss }}</td>

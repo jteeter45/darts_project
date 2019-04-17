@@ -41,12 +41,16 @@ class Playerstat(models.Model):
         'L',
         'DNP'
     )
+    five_singles_wldnp = models.CharField(choices=WON_LOSS_CHOICES, default=WON_LOSS_CHOICES.DNP, max_length=3)
     five_singles_win = models.IntegerField(default=0)
     five_singles_loss = models.IntegerField(default=0)
+    cricket_singles_wldnp = models.CharField(choices=WON_LOSS_CHOICES, default=WON_LOSS_CHOICES.DNP, max_length=3)
     cricket_singles_win = models.IntegerField(default=0)
     cricket_singles_loss = models.IntegerField(default=0)
+    five_doubles_wldnp = models.CharField(choices=WON_LOSS_CHOICES, default=WON_LOSS_CHOICES.DNP, max_length=3)
     five_doubles_win = models.IntegerField(default=0)
     five_doubles_loss = models.IntegerField(default=0)
+    cricket_doubles_wldnp = models.CharField(choices=WON_LOSS_CHOICES, default=WON_LOSS_CHOICES.DNP, max_length=3)
     cricket_doubles_win = models.IntegerField(default=0)
     cricket_doubles_loss = models.IntegerField(default=0)
 

@@ -18,7 +18,9 @@ def index(request):
 		return render(request, 'standings/standings.html', context)
 
 def standings_search(request):
-		queryset_list = Standing.objects.order_by('week', 'team')
+		#queryset_list = Standing.objects.order_by('week', 'team')
+
+		queryset_list = Standing.objects.values('team').order_by('-wins').annotate(wins=Sum('wins'),losses=Sum('losses'))
 
 		#Week
 		if 'week' in request.GET:

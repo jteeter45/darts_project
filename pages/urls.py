@@ -8,4 +8,5 @@ urlpatterns = [
     path('playerplusind', views.playerplusind, name='playerplusind'),
     path('playerstatind', views.playerstatind, name='playerstatind'),
     path('standingsind', views.standingsind, name='standingsind'),
+    path ('test', views.read_file, name='test'),
 ]

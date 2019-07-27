@@ -1,0 +1,21 @@
+wins,	losses,	avg,		team,	name
+3,	0,	100.000,	L.D.,	Brooke Miller
+3,	0,	100.000,	ONO,	Eric Patterson
+1,0,100.000,ONO,Jennifer Johnson
+2,0,100.000,ONO,Jess Murray
+2,0,100.000,L.D.,Joe Jablon
+2,0,100.000,ONO,John Johnson
+3,0,100.000,L.D.,Matt Masten
+2,0,100.000,ONO,Robert Petty
+3,1,75.000,Sloppy Joes,Bradley Haywood
+3,1,75.000,Sloppy Joes,Casey Sean Conrad
+3,1,75.000,Sloppy Joes,Eric Fine
+2,1,66.667,2 Bulls 1 Dart,Brad Crouse
+2,1,66.667,2 Bulls 1 Dart,Brian Smith
+2,1,66.667,ONO,Ken Swing
+2,1,66.667,ONO,Kevin Nolan
+2,1,66.667,L.D.,Thomas Masten
+2,2,50.000,Projectile Dysfunction,Justin Pilkenton
+2,2,50.000,Sloppy Joes,Mike Marxen
+1,1,50.000,L.D.,Pat Masten
+2,2,50.000,Pointdexters,Wayne Frank

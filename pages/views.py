@@ -121,3 +121,9 @@ def standingsind(request):
     }
 
     return render(request, 'pages/standingsind.html', context)
+
+def read_file(request):
+    f = open('./darts_report.txt', 'r')
+    file_content = f.read()
+    f.close()
+    return HttpResponse(file_content, content_type="text/plain")

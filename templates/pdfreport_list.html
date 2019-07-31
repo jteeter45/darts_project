@@ -5,9 +5,9 @@
   {% block content_header %}
     <h2>Pdfreports</h2>
     <p>
-     {% if user.is_authenticated %}
-      <a href="{% url 'upload_pdfreport' %}" class="btn btn-primary">Upload pdfreport</a>
-     {% endif %}
+       {% if user.is_authenticated %}
+        <a href="{% url 'upload_pdfreport' %}" class="btn btn-primary">Upload pdfreport</a>
+      {% endif %} 
     </p>
   {% endblock %}
 
@@ -16,6 +16,9 @@
       <tr>
         <th>Title</th>
         <th>Download</th>
+        {% if user.is_authenticated %} 
+          <th>Delete</th>
+        {% endif %}           
       </tr>
     </thead>
     <tbody>
@@ -27,6 +30,14 @@
               Download PDF
             </a>
           </td>
+          {% if user.is_authenticated %} 
+            <td>
+              <form method="post" action="{% url 'delete_pdfreport' pdfreport.pk %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+              </form>
+            </td>
+          {% endif %} 
         </tr>
       {% endfor %}
     </tbody>

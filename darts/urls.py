@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from pdfreports import views
 
 
 urlpatterns = [
@@ -28,8 +29,18 @@ urlpatterns = [
     path('players/', include('players.urls')),
     path('playerstat/', include('playerstat.urls')),
     path('playerplus/', include('playerplus.urls')),
+
+    path('upload/', views.upload, name='upload'),
+    path('pdfreports/', views.pdfreport_list, name='pdfreport_list'),
+    path('pdfreports/upload/', views.upload_pdfreport, name='upload_pdfreport'),
+    path('pdfreports/<int:pk>/', views.delete_pdfreport, name='delete_pdfreport'),
+
+    path('class/pdfreports/', views.PdfreportListView.as_view(), name='class_pdfreport_list'),
+    path('class/pdfreports/upload/', views.UploadPdfreportView.as_view(), name='class_upload_pdfreport'),
+
     path('admin/', admin.site.urls),
     path('explorer/', include('explorer.urls')),
 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

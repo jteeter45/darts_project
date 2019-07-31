@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'playerstat.apps.PlayerstatConfig',
     'playerplus.apps.PlayerplusConfig',
     'standings.apps.StandingsConfig',
+    'pdfreports.apps.PdfreportsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,7 +47,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'explorer',
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

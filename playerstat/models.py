@@ -30,3 +30,4 @@ class Playerstat(models.Model):
 
     def __int__(self):
         return self.player_name
+

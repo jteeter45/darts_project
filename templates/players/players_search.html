@@ -53,18 +53,22 @@
 <section id="players" class="py-4">
   <div class="container">
     <div class="row">
-        <div class="col-md-6 col-lg-4 mb-4">
+        <div class="col-md-12 col-lg-6 mb-6">
             <div class="card-body">
             {% if players %}
                 <table style="width:90%">
                         <tr>
                             <th>Team</th>
                             <th>Player Name</th>
+                            <th>Phone Number</th>
+                            <th>email</th>
                         </tr>
                     {% for player in players %}
                         <tr>
                             <td>{{ player.team }}</td>
                             <td>{{ player.name }}</td>
+                            <td>{{ player.phone }}</td>
+                            <td>{{ player.email }}</td>
                         </tr>
                     {% endfor %}
                 </table>

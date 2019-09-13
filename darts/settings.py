@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'explorer',
     'crispy_forms',
+    'phone_field',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -142,6 +143,8 @@ MEDIA_URL = '/media/'
 
 EXPLORER_CONNECTIONS = {'default': 'default'}
 EXPLORER_DEFAULT_CONNECTION = 'default'
+# Allow updates in Explorer (took out 'UPDATE',)
+EXPLORER_SQL_BLACKLIST = ('ALTER', 'RENAME ', 'DROP', 'TRUNCATE', 'INSERT INTO', 'REPLACE', 'DELETE', 'ALTER', 'CREATE TABLE', 'SCHEMA', 'GRANT', 'OWNER TO')
 
 try:
     from local_settings import *

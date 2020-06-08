@@ -1,5 +1,4 @@
 from django.db import models
-
 from teams.models import Team
 from weeks.models import Week
 from players.models import Player

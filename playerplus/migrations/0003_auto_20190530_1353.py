@@ -13,6 +13,14 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterField(
             model_name='playerplus',
+            name='team',
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='teams.Team')),
+        migrations.AlterField(
+            model_name='playerplus',
+            name='week',    
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='weeks.Week')),
+        migrations.AlterField(
+            model_name='playerplus',
             name='player_name',
             field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='players.Player'),
         ),

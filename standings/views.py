@@ -20,7 +20,7 @@ def index(request):
 def standings_search(request):
 		#queryset_list = Standing.objects.order_by('week', 'team')
 
-		queryset_list = Standing.objects.values('team').order_by('-wins').annotate(wins=Sum('wins'),losses=Sum('losses'))
+		queryset_list = Standing.objects.values('team', 'week').order_by('-wins').annotate(wins=Sum('wins'),losses=Sum('losses'))
 
 		#Week
 		if 'week' in request.GET:

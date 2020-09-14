@@ -29,8 +29,10 @@ def playerstat_search(request):
         #Team
 		if 'team' in request.GET:
 			team = request.GET['team']
-			if team:
-				queryset_list = queryset_list.filter(team=team)
+			if team == "Alpha":
+				teamGet = 2 
+				#if team:
+				queryset_list = queryset_list.filter(team=teamGet)
 
 		context = {
 			'playerstat': queryset_list,
